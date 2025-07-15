@@ -50,7 +50,7 @@
   </div>
   
   <p class="result">
-    {coinState === 'idle' ? 'Click the coin or press spacebar to flip!' : 
+    {coinState === 'idle' ? 'Click the coin or press space bar to flip!' : 
      coinState === 'flipping' ? 'Flipping...' : 
      coinState.toUpperCase()}
   </p>
@@ -70,12 +70,15 @@
     height: 200px;
     position: relative;
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
     cursor: pointer;
     transition: transform 1s ease-out;
   }
 
-  .coin:hover {
-    filter: brightness(1.1);
+  .coin:hover .coin-side {
+    box-shadow: 
+      0 0 30px rgba(184, 134, 11, 0.5),
+      inset 0 0 30px rgba(255, 255, 255, 0.3);
   }
 
   .coin-side {
@@ -89,6 +92,9 @@
     font-weight: bold;
     font-size: 1.2rem;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
     border: 3px solid #b8860b;
     box-shadow: 
       0 0 20px rgba(184, 134, 11, 0.3),
